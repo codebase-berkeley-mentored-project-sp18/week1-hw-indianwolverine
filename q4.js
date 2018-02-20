@@ -36,7 +36,9 @@ Example 2:
 */
 
 function bind(f, obj) {
-  f_key = f.toString();
-  obj[f_key] = f;
-  return obj[f_key];
+  return x => {
+    f_key = f.toString();
+    obj[f_key] = f;
+    return obj[f_key](x);
+  };
 }
